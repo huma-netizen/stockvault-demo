@@ -1,0 +1,82 @@
+/* =========================================================
+   StockVault — Neumorphic surface system
+   Depth is created with paired light/dark shadows.
+   Only apply heavy shadows to top-level surfaces; nested
+   controls get lighter variants to preserve hierarchy.
+   ========================================================= */
+
+/* ---------- Base surface ---------- */
+.neu {
+  background: var(--surface-raised);
+  border-radius: var(--r-md);
+}
+
+/* ---------- Raised card ---------- */
+.neu-raised {
+  background: var(--surface-raised);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-raised);
+  transition: box-shadow var(--t-base) var(--ease-out),
+              transform var(--t-base) var(--ease-out);
+}
+.neu-raised--sm { box-shadow: var(--shadow-raised-sm); border-radius: var(--r-md); }
+.neu-raised--lg { box-shadow: var(--shadow-raised-lg); border-radius: var(--r-xl); }
+
+/* Hover-lift for interactive raised cards */
+.neu-raised.is-interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-raised-lg);
+}
+.neu-raised.is-interactive:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-raised-sm);
+}
+
+/* ---------- Inset / sunken surface ---------- */
+.neu-inset {
+  background: var(--surface-inset);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-inset);
+}
+.neu-inset--sm {
+  background: var(--surface-inset);
+  border-radius: var(--r-sm);
+  box-shadow: var(--shadow-inset-sm);
+}
+
+/* ---------- Pressed state (used for active nav, segmented) ---------- */
+.neu-pressed {
+  background: var(--surface-inset);
+  box-shadow: var(--shadow-pressed);
+}
+
+/* ---------- Flat surface (used when depth would be noisy) ---------- */
+.neu-flat {
+  background: var(--surface-muted);
+  border-radius: var(--r-md);
+  box-shadow: none;
+  border: 1px solid var(--border);
+}
+
+/* ---------- Raised icon container ---------- */
+.neu-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--surface-raised);
+  box-shadow: var(--shadow-raised-sm);
+  color: var(--text-secondary);
+  transition: box-shadow var(--t-fast) var(--ease-out),
+              transform var(--t-fast) var(--ease-out),
+              color var(--t-fast) var(--ease-out);
+}
+.neu-icon--sm { width: 32px; height: 32px; }
+.neu-icon--lg { width: 48px; height: 48px; }
+.neu-icon--accent { color: var(--accent); }
+.neu-icon--success { color: var(--success); }
+.neu-icon--warning { color: var(--warning); }
+.neu-icon--danger { color: var(--danger); }
+.neu-icon--info { color: var(--info); }

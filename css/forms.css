@@ -1,0 +1,152 @@
+/* =========================================================
+   StockVault — Forms
+   Inputs are recessed (inset). Labels stay readable.
+   ========================================================= */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+.form-section__title {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  margin-bottom: var(--s-1);
+}
+
+.form-grid {
+  display: grid;
+  gap: var(--s-4);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.form-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.form-grid .col-span-2 { grid-column: span 2; }
+.form-grid .col-span-3 { grid-column: span 3; }
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.field__label {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--text);
+}
+.field__label .req { color: var(--danger); margin-left: 2px; }
+.field__hint { font-size: var(--fs-xs); color: var(--text-secondary); }
+.field__error { font-size: var(--fs-xs); color: var(--danger); min-height: 16px; }
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px var(--s-4);
+  border: 0;
+  border-radius: var(--r-md);
+  background: var(--surface-inset);
+  color: var(--text);
+  box-shadow: var(--shadow-inset-sm);
+  font-size: var(--fs-base);
+  transition: box-shadow var(--t-fast) var(--ease-out), background-color var(--t-fast) var(--ease-out);
+  appearance: none;
+}
+.textarea { min-height: 110px; padding: var(--s-3) var(--s-4); resize: vertical; line-height: var(--lh-base); }
+
+.input::placeholder,
+.textarea::placeholder { color: var(--text-muted); }
+
+.input:focus-visible,
+.select:focus-visible,
+.textarea:focus-visible {
+  box-shadow: var(--shadow-inset-sm), var(--focus-ring);
+}
+
+.select {
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--text-secondary) 50%),
+    linear-gradient(135deg, var(--text-secondary) 50%, transparent 50%);
+  background-position: calc(100% - 20px) 50%, calc(100% - 14px) 50%;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 40px;
+}
+
+.field.has-error .input,
+.field.has-error .select,
+.field.has-error .textarea {
+  box-shadow: var(--shadow-inset-sm), 0 0 0 2px var(--danger);
+}
+
+/* ---------- Input with icon prefix ---------- */
+.input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.input-wrap .input { padding-left: 40px; }
+.input-wrap .prefix {
+  position: absolute;
+  left: 14px;
+  color: var(--text-muted);
+  pointer-events: none;
+  display: inline-flex;
+}
+.input-wrap .suffix {
+  position: absolute;
+  right: 12px;
+  color: var(--text-secondary);
+  font-size: var(--fs-sm);
+  pointer-events: none;
+}
+
+/* ---------- Input group (prefix button) ---------- */
+.input-group { display: flex; gap: var(--s-2); align-items: stretch; }
+.input-group .input { flex: 1 1 auto; }
+.input-group .btn { flex: 0 0 auto; }
+
+/* ---------- Checkbox / radio ---------- */
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  font-size: var(--fs-base);
+  color: var(--text);
+  cursor: pointer;
+  user-select: none;
+}
+.check input { width: 16px; height: 16px; accent-color: var(--accent); }
+
+/* ---------- Form footer ---------- */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--s-3);
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--divider);
+  margin-top: var(--s-2);
+}
+
+/* ---------- Profit preview strip ---------- */
+.profit-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-5);
+  padding: var(--s-4);
+  border-radius: var(--r-md);
+  background: var(--surface-inset);
+  box-shadow: var(--shadow-inset-sm);
+}
+.profit-preview__item { display: flex; flex-direction: column; gap: 2px; }
+.profit-preview__label { font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-secondary); }
+.profit-preview__value { font-size: var(--fs-lg); font-weight: var(--fw-semibold); font-variant-numeric: tabular-nums; }

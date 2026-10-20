@@ -1,0 +1,142 @@
+/* =========================================================
+   StockVault — Responsive overrides
+   Breakpoints: 1280, 1024, 768, 480
+   ========================================================= */
+
+/* ---------- ≤ 1280px ---------- */
+@media (max-width: 1280px) {
+  .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dash-analytics,
+  .dash-lower { grid-template-columns: 1fr; }
+}
+
+/* ---------- ≤ 1024px ---------- */
+@media (max-width: 1024px) {
+  :root { --gutter: var(--s-5); }
+
+  .topbar {
+    grid-template-columns: auto 1fr auto;
+  }
+  .topbar__search {
+    display: none;
+  }
+
+  .form-grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .form-grid--3 .col-span-3 { grid-column: span 2; }
+}
+
+/* ---------- ≤ 860px : mobile drawer sidebar ---------- */
+@media (max-width: 860px) {
+  .app-shell,
+  .app-shell.is-collapsed {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    width: min(300px, 84vw);
+    height: 100dvh;
+    transform: translateX(-102%);
+    transition: transform var(--t-slow) var(--ease-out);
+    box-shadow: var(--shadow-overlay);
+    background: var(--bg);
+    z-index: var(--z-sidebar);
+  }
+  .app-shell.is-drawer-open .sidebar { transform: translateX(0); }
+
+  /* Reset collapsed-mode display rules inside drawer */
+  .app-shell.is-collapsed .brand-text,
+  .app-shell.is-collapsed .nav-section,
+  .app-shell.is-collapsed .nav-item > span:not(.nav-icon),
+  .app-shell.is-collapsed .sidebar__footer .status-text,
+  .app-shell.is-collapsed .sidebar__footer .profile-name {
+    display: revert;
+  }
+  .app-shell.is-collapsed .sidebar { align-items: stretch; padding: var(--s-5) var(--s-3) var(--s-4); }
+  .app-shell.is-collapsed .nav-item { justify-content: flex-start; padding: 10px var(--s-3); }
+  .app-shell.is-collapsed .nav-item .nav-badge { position: static; margin-left: auto; }
+
+  .topbar { padding: 0 var(--s-4); gap: var(--s-3); }
+  .page-title { font-size: var(--fs-lg); }
+
+  .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-4); }
+  .dash-analytics,
+  .dash-lower { gap: var(--s-4); }
+
+  .form-grid,
+  .form-grid--3 { grid-template-columns: 1fr; }
+  .form-grid .col-span-2,
+  .form-grid .col-span-3,
+  .form-grid--3 .col-span-2,
+  .form-grid--3 .col-span-3 { grid-column: span 1; }
+
+  .app-view { padding: var(--s-5) var(--s-4) var(--s-8); }
+}
+
+/* ---------- ≤ 560px : phones ---------- */
+@media (max-width: 560px) {
+  :root { --gutter: var(--s-4); --topbar-h: 62px; }
+
+  .topbar__actions .btn--primary span { display: none; }
+  .topbar__actions .btn--primary { width: 42px; padding: 0; border-radius: 50%; }
+
+  .kpi-grid { grid-template-columns: 1fr; }
+  .kpi { min-height: 128px; }
+
+  .page-title { font-size: var(--fs-md); }
+  .breadcrumbs { display: none; }
+
+  .card { padding: var(--s-4); border-radius: var(--r-md); }
+  .card__header { flex-wrap: wrap; }
+
+  .modal { border-radius: var(--r-lg); }
+  .modal__footer { flex-direction: column-reverse; }
+  .modal__footer .btn { width: 100%; }
+
+  .toast-root {
+    left: var(--s-4);
+    right: var(--s-4);
+    bottom: var(--s-4);
+    max-width: none;
+  }
+
+  .pagination { flex-direction: column; align-items: stretch; }
+  .pagination__controls { justify-content: center; }
+}
+
+/* ---------- Coarse pointer tuning ---------- */
+@media (hover: none) {
+  .table .row-actions { opacity: 1; }
+  .kpi:hover,
+  .neu-raised.is-interactive:hover { transform: none; }
+}
+
+/* ---------- Print ---------- */
+@media print {
+  .sidebar,
+  .topbar,
+  .toast-root,
+  .modal-root,
+  .sidebar-overlay,
+  .no-print { display: none !important; }
+
+  body { background: #fff !important; color: #111 !important; }
+  .app-shell { display: block !important; }
+  .app-view { padding: 0 !important; max-width: none; }
+
+  .card,
+  .neu-raised,
+  .kpi,
+  .table-wrap {
+    box-shadow: none !important;
+    background: #fff !important;
+    border: 1px solid #ddd !important;
+  }
+  .table thead th { background: #f3f3f3 !important; color: #111 !important; }
+  .badge { border: 1px solid #999; background: #fff !important; color: #111 !important; }
+
+  a { color: #111 !important; text-decoration: none; }
+
+  @page { margin: 14mm; }
+}

@@ -1,0 +1,161 @@
+/* =========================================================
+   StockVault — Design Tokens
+   All colors, shadows, spacing, radii, and motion live here.
+   Light and dark themes both derive from these tokens.
+   ========================================================= */
+
+:root {
+  /* ---------- Brand / accents (shared across themes) ---------- */
+  --accent:           #5865F2;
+  --accent-strong:    #4B57D6;
+  --accent-soft:      rgba(88, 101, 242, 0.12);
+
+  --success:          #278B68;
+  --success-soft:     rgba(39, 139, 104, 0.14);
+  --warning:          #D99126;
+  --warning-soft:     rgba(217, 145, 38, 0.16);
+  --danger:           #D94F59;
+  --danger-soft:      rgba(217, 79, 89, 0.14);
+  --info:             #3484D8;
+  --info-soft:        rgba(52, 132, 216, 0.14);
+
+  /* ---------- Light theme surfaces ---------- */
+  --bg:               #E9EDF3;   /* page background + raised base */
+  --bg-elev:          #EDF1F7;   /* subtle elevation base */
+  --bg-sunken:        #DFE4EC;   /* inset / recessed base */
+  --surface:          #E9EDF3;
+  --surface-raised:   #E9EDF3;
+  --surface-inset:    #E1E6EE;
+  --surface-muted:    #F0F3F8;
+
+  /* ---------- Light theme text ---------- */
+  --text:             #253047;
+  --text-secondary:   #758198;
+  --text-muted:       #97A2B6;
+  --text-inverse:     #FFFFFF;
+
+  /* ---------- Light theme borders / dividers ---------- */
+  --border:           rgba(37, 48, 71, 0.08);
+  --border-strong:    rgba(37, 48, 71, 0.14);
+  --divider:          rgba(37, 48, 71, 0.06);
+
+  /* ---------- Neumorphic shadows (light) ---------- */
+  --shadow-light:     #FFFFFF;
+  --shadow-dark:      #C4CBD8;
+
+  --shadow-raised-sm: 2px 2px 5px var(--shadow-dark), -2px -2px 5px var(--shadow-light);
+  --shadow-raised:    5px 5px 12px var(--shadow-dark), -5px -5px 12px var(--shadow-light);
+  --shadow-raised-lg: 9px 9px 20px var(--shadow-dark), -9px -9px 20px var(--shadow-light);
+  --shadow-pressed:   inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
+  --shadow-inset:     inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+  --shadow-inset-sm:  inset 2px 2px 4px var(--shadow-dark), inset -2px -2px 4px var(--shadow-light);
+
+  --shadow-flat:      0 1px 2px rgba(37, 48, 71, 0.06);
+  --shadow-overlay:   0 18px 44px rgba(37, 48, 71, 0.18);
+
+  /* ---------- Focus ring ---------- */
+  --focus-ring:       0 0 0 3px rgba(88, 101, 242, 0.35);
+
+  /* ---------- Radii ---------- */
+  --r-xs:  6px;
+  --r-sm:  10px;
+  --r-md:  14px;
+  --r-lg:  18px;
+  --r-xl:  24px;
+  --r-pill: 999px;
+
+  /* ---------- Spacing scale (4px base) ---------- */
+  --s-1:  4px;
+  --s-2:  8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-5:  20px;
+  --s-6:  24px;
+  --s-7:  32px;
+  --s-8:  40px;
+  --s-9:  56px;
+  --s-10: 72px;
+
+  /* ---------- Typography ---------- */
+  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --fs-xs:   12px;
+  --fs-sm:   13px;
+  --fs-base: 14px;
+  --fs-md:   15px;
+  --fs-lg:   17px;
+  --fs-xl:   20px;
+  --fs-2xl:  24px;
+  --fs-3xl:  30px;
+  --fs-4xl:  38px;
+
+  --lh-tight: 1.2;
+  --lh-base:  1.5;
+  --lh-loose: 1.65;
+
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-semibold: 600;
+  --fw-bold:    700;
+
+  /* ---------- Layout ---------- */
+  --sidebar-w:          260px;
+  --sidebar-w-collapsed: 76px;
+  --topbar-h:           68px;
+  --content-max:        1440px;
+  --gutter:             var(--s-6);
+
+  /* ---------- Motion ---------- */
+  --t-fast:   140ms;
+  --t-base:   180ms;
+  --t-slow:   240ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ---------- Z-index scale ---------- */
+  --z-sidebar:    30;
+  --z-overlay:    25;
+  --z-topbar:     20;
+  --z-dropdown:   40;
+  --z-modal:      50;
+  --z-toast:      60;
+}
+
+/* =========================================================
+   DARK THEME
+   Not a simple inversion — dedicated dark neumorphic palette.
+   ========================================================= */
+[data-theme="dark"] {
+  --bg:              #1B2130;
+  --bg-elev:         #1F2636;
+  --bg-sunken:       #151A26;
+  --surface:         #1B2130;
+  --surface-raised:  #1F2636;
+  --surface-inset:   #171C29;
+  --surface-muted:   #232B3D;
+
+  --text:            #E6ECF6;
+  --text-secondary:  #9AA6BD;
+  --text-muted:      #6E7A92;
+  --text-inverse:    #0E121B;
+
+  --border:          rgba(230, 236, 246, 0.07);
+  --border-strong:   rgba(230, 236, 246, 0.14);
+  --divider:         rgba(230, 236, 246, 0.05);
+
+  --shadow-light:    #232B3D;
+  --shadow-dark:     #0F131D;
+
+  --shadow-raised-sm: 2px 2px 5px var(--shadow-dark), -2px -2px 5px var(--shadow-light);
+  --shadow-raised:    5px 5px 12px var(--shadow-dark), -5px -5px 12px var(--shadow-light);
+  --shadow-raised-lg: 9px 9px 20px var(--shadow-dark), -9px -9px 20px var(--shadow-light);
+  --shadow-pressed:   inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
+  --shadow-inset:     inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+  --shadow-inset-sm:  inset 2px 2px 4px var(--shadow-dark), inset -2px -2px 4px var(--shadow-light);
+
+  --shadow-flat:      0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-overlay:   0 18px 44px rgba(0, 0, 0, 0.55);
+
+  --focus-ring:       0 0 0 3px rgba(120, 132, 255, 0.45);
+}

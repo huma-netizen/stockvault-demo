@@ -1,0 +1,25 @@
+{
+  "name": "StockVault — Offline Inventory Manager",
+  "short_name": "StockVault",
+  "description": "Offline-first inventory management with local IndexedDB persistence, CSV tools, purchase orders, and printable reports.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#E9EDF3",
+  "theme_color": "#5865F2",
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "assets/icons/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ],
+  "shortcuts": [
+    { "name": "Add Product", "url": "./index.html#/products?action=new" },
+    { "name": "Low Stock",   "url": "./index.html#/low-stock" },
+    { "name": "Reports",     "url": "./index.html#/reports" }
+  ]
+}
